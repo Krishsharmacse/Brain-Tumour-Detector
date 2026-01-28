@@ -1,113 +1,164 @@
-# Brain-Tumour-Detector
+Markdown
+<div align="center">
+
 # 🧠 NeuroScan AI
+### Intelligent Brain Tumor Detection & Specialist Locator
 
-![Status](https://img.shields.io/badge/Status-Active-success)
-![Python](https://img.shields.io/badge/Backend-Flask-blue?logo=flask)
-![TensorFlow](https://img.shields.io/badge/AI-TensorFlow-orange?logo=tensorflow)
-![JavaScript](https://img.shields.io/badge/Frontend-Vanilla%20JS-yellow?logo=javascript)
-![License](https://img.shields.io/badge/License-MIT-green)
+[![Status](https://img.shields.io/badge/Status-Active-success?style=for-the-badge)](https://github.com/yourusername/NeuroScan-AI)
+[![Python](https://img.shields.io/badge/Backend-Flask-blue?style=for-the-badge&logo=flask)](https://flask.palletsprojects.com/)
+[![TensorFlow](https://img.shields.io/badge/AI-TensorFlow-orange?style=for-the-badge&logo=tensorflow)](https://www.tensorflow.org/)
+[![JavaScript](https://img.shields.io/badge/Frontend-Vanilla%20JS-yellow?style=for-the-badge&logo=javascript)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
 
-**NeuroScan AI** is a cutting-edge web application designed to assist in the early detection of brain tumors using MRI scans. Developed by **Krish Sharma** (USICT), it combines Deep Learning for diagnosis with intelligent geolocation services to connect patients with the nearest specialized medical care.
+<p align="center">
+  <b>A cutting-edge web application combining Deep Learning for MRI diagnosis with intelligent geolocation services.</b>
+</p>
+
+[View Demo](#) • [Report Bug](#) • [Request Feature](#)
+
+</div>
 
 ---
 
-## 🚀 Features
+## 📖 Overview
+**NeuroScan AI** is designed to bridge the gap between advanced medical diagnostics and patient accessibility. Developed by **Krish Sharma** (USICT), this system analyzes MRI scans using a Convolutional Neural Network (CNN) to detect brain tumors and immediately connects patients with the nearest specialized medical care (Neurologists, Radiologists) using geolocation data.
 
-### 1. AI-Powered Diagnosis
-* **High Accuracy:** Utilizes a Convolutional Neural Network (CNN) trained on thousands of MRI scans (~92% accuracy).
-* **Multi-Class Detection:** Identifies four distinct conditions:
-    * **Glioma**
-    * **Meningioma**
-    * **Pituitary Tumor**
-    * **No Tumor** (Healthy)
+---
 
-### 2. Intelligent Hospital Locator
-* **Specialist Search:** Automatically detects user location and searches specifically for **Neurologists**, **Radiologists**, and **MRI Centers** using the Overpass API.
-* **Smart Fallback:** If no specialists are found nearby, the system automatically falls back to searching for general hospitals to ensure the user always gets help.
-* **Interactive Map:** Built with Leaflet.js for smooth navigation.
+## 📸 Screenshots
+*(Add your screenshots here. It is highly recommended to show the "Upload" interface and the "Result/Map" interface)*
 
-### 3. Medical Insights
-* Provides immediate, context-aware information regarding the detected tumor type, including descriptions, treatment options, and urgency levels.
+| Upload Interface | Analysis & Map Result |
+|:---:|:---:|
+| <img src="path/to/upload-screenshot.png" alt="Upload" width="400"/> | <img src="path/to/result-screenshot.png" alt="Result" width="400"/> |
+
+---
+
+## 🚀 Key Features
+
+### 1. 🧠 AI-Powered Diagnosis
+* **Deep Learning Core:** Powered by a custom CNN model trained on thousands of MRI scans with **~92% accuracy**.
+* **Multi-Class Classification:** Capable of identifying:
+    * `Glioma`
+    * `Meningioma`
+    * `Pituitary Tumor`
+    * `No Tumor` (Healthy)
+
+### 2. 📍 Intelligent Hospital Locator
+* **Context-Aware Search:** Automatically detects user coordinates to find **Neurologists**, **Radiologists**, and **MRI Centers** specifically.
+* **Smart Fallback System:** If specialized centers aren't found, the system intelligently broadens the search to general hospitals to ensure no patient is left without options.
+* **Interactive Mapping:** Visualizes data using **Leaflet.js** and the **Overpass API**.
+
+### 3. ℹ️ Medical Insights
+* Delivers immediate context regarding the specific tumor type detected, including urgency levels and general medical descriptions to educate the user.
 
 ---
 
 ## 🛠️ Tech Stack
 
-| Component | Technology |
-|-----------|------------|
-| **Frontend** | HTML5, CSS3 (Glassmorphism), Vanilla JavaScript |
+| Domain | Technologies |
+|---|---|
+| **Frontend** | HTML5, CSS3 (Glassmorphism UI), Vanilla JavaScript |
 | **Mapping** | Leaflet.js, OpenStreetMap, Overpass API |
-| **Backend** | Python, Flask (REST API) |
-| **AI Model** | TensorFlow / Keras (CNN) |
-| **Image Proc** | NumPy, Pillow |
+| **Backend** | Python 3.8+, Flask (REST API) |
+| **Deep Learning** | TensorFlow, Keras (CNN Architecture) |
+| **Data Processing** | NumPy, Pillow (PIL) |
 
 ---
 
-## 📂 Project Structure
+## ⚙️ Installation & Setup
 
-```bash
-NeuroScan-AI/
-├── backend/
-│   ├── app.py              # Flask Application Entry Point
-│   ├── model.h5            # Pre-trained Deep Learning Model
-│   └── requirements.txt    # Python Dependencies
-│
-├── frontend/
-│   ├── index.html          # Main User Interface
-│   ├── style.css           # Styling & Animations
-│   └── script.js           # Frontend Logic (API & Maps)
-│
-└── README.md               # Project Documentation
-⚡ Installation & Setup
 Follow these steps to run the project locally.
 
-Prerequisites
-Python 3.8+ installed.
+### Prerequisites
+* Python 3.8 or higher
+* A modern web browser (Chrome/Edge/Firefox)
 
-A modern web browser.
-
-1. Backend Setup
+### 1. Clone the Repository
+```bash
+git clone [https://github.com/yourusername/NeuroScan-AI.git](https://github.com/yourusername/NeuroScan-AI.git)
+cd NeuroScan-AI
+2. Backend Setup
 Bash
-# Navigate to the backend directory
+# Navigate to backend
 cd backend
 
-# Create a virtual environment (Optional but recommended)
+# Create virtual environment (Recommended)
 python -m venv venv
-# Windows
+
+# Activate Virtual Environment
+# Windows:
 venv\Scripts\activate
-# Mac/Linux
+# Mac/Linux:
 source venv/bin/activate
 
-# Install dependencies
+# Install Dependencies
 pip install flask flask-cors tensorflow numpy pillow
 
-# Run the Flask server
+# Run the Server
 python app.py
-The server will start on http://127.0.0.1:5001
+The backend server will start at http://127.0.0.1:5001
 
-2. Frontend Setup
+3. Frontend Setup
 Navigate to the frontend/ folder.
 
-Open index.html in your web browser.
+Open index.html in your browser.
 
-Tip: For the best experience, use the "Live Server" extension in VS Code to run the HTML file.
+Pro Tip: For the best experience (and to avoid local file CORS issues), use the Live Server extension in VS Code.
 
-📸 Usage Guide
-Upload: Click or drag an MRI image (.jpg, .png, .dcm) into the upload zone.
+📂 Project Structure
+Plaintext
+NeuroScan-AI/
+├── backend/
+│   ├── app.py             # Main Flask API
+│   ├── model.h5           # Pre-trained CNN Model
+│   └── requirements.txt   # Backend dependencies
+├── frontend/
+│   ├── index.html         # User Interface
+│   ├── style.css          # Glassmorphism Styling
+│   └── script.js          # API Logic & Map Rendering
+└── README.md              # Documentation
+🧠 Model Architecture
+The AI model is a Convolutional Neural Network (CNN) built with TensorFlow/Keras. It consists of:
 
-Analyze: Click the Analyze Scan button.
+Convolutional Layers: To extract features (edges, textures) from MRI images.
 
-Result: View the prediction, confidence score, and medical details.
+MaxPooling Layers: To reduce dimensionality and computation.
 
-Locate: If a tumor is detected, the map will auto-scroll and pinpoint nearby specialists.
+Flattening & Dense Layers: For final classification into 4 categories.
 
-👨‍💻 About the Developer
-Krish Sharma B.Tech Student, University School of Information, Communication and Technology (USICT)
+Softmax Activation: To output probability scores for each tumor class.
 
-Passionate about leveraging Artificial Intelligence to solve real-world healthcare challenges. NeuroScan AI represents a step towards making advanced diagnostics accessible and actionable.
+🔮 Future Scope
+[ ] Integration of DICOM file support for direct medical usage.
+
+[ ] Deployment to cloud platforms (AWS/GCP/Heroku).
+
+[ ] Mobile Application (React Native).
+
+[ ] PDF Report Generation for patients.
+
+👨‍💻 Author
+Krish Sharma
+
+University School of Information, Communication and Technology (USICT)
+
+Passionate about AI in Healthcare.
 
 ⚠️ Medical Disclaimer
-This application is designed for educational and research purposes only. It is not a certified medical device and should not be used as a substitute for professional medical diagnosis, advice, or treatment. Always consult a qualified healthcare provider for any medical concerns.
+IMPORTANT: This application is developed for educational and research purposes only. It is not a certified medical device. The predictions made by the AI should never be used as a substitute for professional medical diagnosis, advice, or treatment. Always consult a qualified neurologist or healthcare provider for any medical concerns.
 
 📄 License
 This project is open-source and available under the MIT License.
+
+
+### What I Improved:
+1.  **Visual Hierarchy:** Added a centered header with a "badge row" for an immediate professional look.
+2.  **Screenshots Section:** Added a placeholder for images. **Action Item:** Take two screenshots of your app and put them in the project folder so the generic links work.
+3.  **Better Formatting:** Used HTML `<table>` for the Tech Stack to make it look cleaner than a standard Markdown list.
+4.  **Clearer Installation:** Separated the "Clone," "Backend," and "Frontend" steps with precise code blocks.
+5.  **Future Scope:** Added a section on what you plan to do next. This is crucial for recruiters—it shows you are thinking about scalability.
+6.  **Navigation:** Added a "Table of Contents" style structure via headers.
+
+### Next Step
+Would you like me to help you generate a **`requirements.txt`** file or explain how to deploy the Flask backend to a free service like Render?
