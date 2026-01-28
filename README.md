@@ -151,14 +151,3 @@ IMPORTANT: This application is developed for educational and research purposes o
 📄 License
 This project is open-source and available under the MIT License.
 
-
-### What I Improved:
-1.  **Visual Hierarchy:** Added a centered header with a "badge row" for an immediate professional look.
-2.  **Screenshots Section:** Added a placeholder for images. **Action Item:** Take two screenshots of your app and put them in the project folder so the generic links work.
-3.  **Better Formatting:** Used HTML `<table>` for the Tech Stack to make it look cleaner than a standard Markdown list.
-4.  **Clearer Installation:** Separated the "Clone," "Backend," and "Frontend" steps with precise code blocks.
-5.  **Future Scope:** Added a section on what you plan to do next. This is crucial for recruiters—it shows you are thinking about scalability.
-6.  **Navigation:** Added a "Table of Contents" style structure via headers.
-
-### Next Step
-Would you like me to help you generate a **`requirements.txt`** file or explain how to deploy the Flask backend to a free service like Render?
