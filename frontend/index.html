@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🧠 NeuroScan AI | Brain Tumor Detection</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <div class="logo-icon">
+          <i class="fas fa-brain"></i>
+        </div>
+        <div class="logo-text">NEUROSCAN AI</div>
+      </div>
+      <nav class="nav-links">
+        <a href="#" class="nav-link active"><i class="fas fa-home"></i> Home</a>
+        <a href="#map-section" class="nav-link"><i class="fas fa-hospital-alt"></i> Find Hospitals</a>
+        <a href="#" class="nav-link"><i class="fas fa-history"></i> History</a>
+        <a href="#" class="nav-link"><i class="fas fa-info-circle"></i> About</a>
+      </nav>
+    </header>
+
+    <!-- Main Dashboard -->
+    <main class="dashboard">
+      <!-- Upload Section -->
+      <section class="upload-card">
+        <h2 class="card-title"><i class="fas fa-upload"></i> Upload MRI Scan</h2>
+        <p class="card-subtitle">Upload a brain MRI image (JPEG, PNG, DICOM). Our AI will analyze it for tumor detection
+          with 92.7% accuracy.</p>
+
+        <div class="upload-area" id="uploadArea">
+          <div class="upload-icon">
+            <i class="fas fa-cloud-upload-alt"></i>
+          </div>
+          <div class="upload-text">Drag & Drop your MRI file here</div>
+          <div class="upload-subtext">or click to browse (Max 10MB)</div>
+          <input type="file" id="imageInput" accept="image/*,.dcm" />
+        </div>
+
+        <div class="scan-visualization">
+          <div class="scan-line"></div>
+        </div>
+
+        <div class="button-group">
+          <button class="btn btn-primary" id="analyzeBtn">
+            <i class="fas fa-bolt"></i> Analyze Scan
+          </button>
+          <button class="btn btn-secondary" id="clearBtn">
+            <i class="fas fa-redo"></i> Clear
+          </button>
+        </div>
+
+        <div id="loading" class="loading-container hidden">
+          <div class="neuro-loader"></div>
+          <div class="loading-text">ANALYZING MRI SCAN</div>
+          <p style="margin-top: 15px; color: #8cc8ff;">Processing image with deep neural networks...</p>
+        </div>
+      </section>
+
+      <!-- Results Section -->
+      <section class="results-card">
+        <h2 class="card-title"><i class="fas fa-chart-line"></i> Analysis Results</h2>
+        <p class="card-subtitle">Real-time tumor detection results with detailed medical insights</p>
+
+        <div id="result" class="hidden">
+          <!-- Results will be inserted here -->
+        </div>
+
+        <div id="defaultResult">
+          <div style="text-align: center; padding: 60px 20px; color: #8cc8ff;">
+            <i class="fas fa-microscope" style="font-size: 4rem; margin-bottom: 20px; opacity: 0.5;"></i>
+            <h3 style="margin-bottom: 15px; color: #ffffff;">No Scan Analyzed Yet</h3>
+            <p>Upload a brain MRI scan to get AI-powered tumor detection results with detailed medical analysis.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Map Section -->
+    <div class="map-section" id="map-section">
+      <div class="map-card">
+        <div class="map-controls">
+          <div>
+            <h2 class="card-title"><i class="fas fa-map-marked-alt"></i> Nearby Medical Centers</h2>
+            <p class="card-subtitle" style="margin-bottom: 0;">Locate specialized hospitals for neurology and oncology
+              treatment.</p>
+          </div>
+          <div class="location-buttons">
+            <button class="btn btn-primary" id="locateBtn">
+              <i class="fas fa-location-arrow"></i> Find Nearby Hospitals
+            </button>
+            <button class="btn btn-secondary" id="resetMapBtn">
+              <i class="fas fa-sync-alt"></i> Reset Map
+            </button>
+          </div>
+        </div>
+        <div id="map"></div>
+        <div class="map-status" id="mapStatus">
+          <i class="fas fa-info-circle"></i> Click "Find Nearby Hospitals" to locate medical centers in your area.
+        </div>
+        <div id="hospitalList" class="hospital-list hidden">
+          <!-- Hospital list will be inserted here -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats Section -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon">
+          <i class="fas fa-robot"></i>
+        </div>
+        <div class="stat-value">92%</div>
+        <div class="stat-label">Model Accuracy</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">
+          <i class="fas fa-clock"></i>
+        </div>
+        <div class="stat-value">2.4s</div>
+        <div class="stat-label">Avg. Processing Time</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">
+          <i class="fas fa-database"></i>
+        </div>
+        <div class="stat-value">15K+</div>
+        <div class="stat-label">Training Scans</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">
+          <i class="fas fa-user-shield"></i>
+        </div>
+        <div class="stat-value">HIPAA</div>
+        <div class="stat-label">Compliant</div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-logo">NEUROSCAN AI v2.2</div>
+      <p>Powered by TensorFlow & Flask | Built with ❤️ by Krish Sharma</p>
+      <p style="margin-top: 10px; font-size: 0.8rem; color: #6a9bc3;">
+        <i class="fas fa-exclamation-triangle"></i> For educational and research purposes only. Consult medical
+        professionals for diagnosis.
+      </p>
+    </footer>
+  </div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+  <script src="script.js">
+  
+  </script>
+</body>
+
+</html>
